@@ -24,7 +24,7 @@ public class UsersController {
 	}
 	
 	@GetMapping("/joinsuccess")
-	public String joinsuccess() {
+	public String joinSuccess() {
 		return "users/joinsuccess";
 	}
 	
@@ -32,36 +32,39 @@ public class UsersController {
 	public String joinAction(@ModelAttribute UserVo userVo) {
 		boolean success = userServiceImpl.join(userVo);
 		
-		if(!success) {
+		if (!success) {
 			System.err.println("회원가입 실패!");
 			return "redirect:/users/join";
 		} else {
 			System.out.println("회원가입 성공!");
 			return "redirect:/users/joinsuccess";
 		}
-		
-		}
+	}
 	
 	@GetMapping("/login")
 	public String loginForm() {
-		return "users/loginForm";
+		return "users/loginform";
 	}
 	
 	@PostMapping("/login")
-	public String loginAction(@RequestParam(value="email", required=false)
-			String email, @RequestParam(value="password", required=false)
+	public String loginAction(
+			@RequestParam(value="email",
+							required=false)
+			String email, 
+			@RequestParam(value="password",
+							required=false)
 			String password,
 			HttpSession session) {
-		if (email.length() == 0 || password.length() == 0) {
+		if (email.length() == 0 || 
+				password.length() == 0) {
 			System.err.println("email 혹은 password가 전송되지 않음");
-			return "redirect:/users/login";
+			return "redirect:/users/login";			
 		}
 		
 		UserVo authUser = userServiceImpl.getUser(email, password);
 		
-		if(authUser != null) {
-			// 로그인 확인
-			// 세션에 사용자 정보 추가
+		if (authUser != null) {
+			//	세션에 사용자 정보 추가
 			session.setAttribute("authUser", authUser);
 			return "redirect:/";
 		} else {

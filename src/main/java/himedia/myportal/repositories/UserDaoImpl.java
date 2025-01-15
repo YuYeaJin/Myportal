@@ -12,13 +12,11 @@ import himedia.myportal.repositories.vo.UserVo;
 
 @Repository
 public class UserDaoImpl implements UserDao {
-
 	@Autowired
 	SqlSession sqlSession;
 	
 	@Override
 	public int insert(UserVo vo) {
-		int insertedCount =0;
 		try {
 			return sqlSession.insert("user.insert", vo);
 		} catch (Exception e) {
@@ -34,11 +32,14 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public UserVo selectUser(String email, String password) {
-		Map<String, String> userMap = new HashMap<>();
-		userMap.put("amsil", email);
+		Map<String, String> userMap 
+			= new HashMap<>();
+		userMap.put("email", email);
 		userMap.put("password", password);
 		
-		UserVo vo = sqlSession.selectOne("user.selectUserByEmailAndPassword", userMap);
+		UserVo vo = 
+			sqlSession.selectOne("user.selectUserByEmailAndPassword", 
+					userMap);
 		return vo;
 	}
 
