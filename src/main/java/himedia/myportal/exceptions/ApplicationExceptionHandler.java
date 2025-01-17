@@ -1,4 +1,4 @@
-package himedia.myportal.exception;
+package himedia.myportal.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.ui.Model;
@@ -14,7 +14,7 @@ public class ApplicationExceptionHandler {
 	@ExceptionHandler(RuntimeException.class)
 	public String handleRuntimeException(RuntimeException e, Model model) {
 		//	1. 로그 처리
-		System.err.println("========================");
+		System.err.println("===================");
 		System.err.println("ControllerAdvice에 의한 Error Handling");
 		e.printStackTrace();
 		
@@ -22,6 +22,6 @@ public class ApplicationExceptionHandler {
 		model.addAttribute("name", e.getClass().getSimpleName());
 		model.addAttribute("message", e.getMessage());
 		
-		return "error/exception";
+		return "errors/exception";
 	}
 }

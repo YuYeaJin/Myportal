@@ -1,4 +1,4 @@
-package himedia.myportal.exception;
+package himedia.myportal.exceptions;
 
 import himedia.myportal.repositories.vo.BoardVo;
 
@@ -13,7 +13,8 @@ public class BoardDaoException extends RuntimeException {
 		super(message);
 	}
 	
-	public BoardDaoException(String message, BoardVo vo) {
+	public BoardDaoException(String message,
+			BoardVo vo) {
 		super(message);
 		this.boardVo = vo;
 	}
@@ -25,6 +26,4 @@ public class BoardDaoException extends RuntimeException {
 	public void setBoardVo(BoardVo boardVo) {
 		this.boardVo = boardVo;
 	}
-	
-	
 }

@@ -1,6 +1,7 @@
 package himedia.myportal.controllers;
 
 import java.util.HashMap;
+
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import himedia.myportal.repositories.vo.UserVo;
 import himedia.myportal.services.UserService;
@@ -76,6 +78,7 @@ public class UsersController {
 		}
 	}
 	
+	/*
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
 		session.removeAttribute("authUser");
@@ -83,6 +86,8 @@ public class UsersController {
 		
 		return "redirect:/";
 	}
+	-> 로그아운 인터셉터로 위임
+	*/
 	
 	@ResponseBody
 	@GetMapping("/checkEmail")
@@ -101,3 +106,17 @@ public class UsersController {
 		return map;
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

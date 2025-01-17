@@ -22,6 +22,14 @@
   		<param-value>/WEB-INF/spring-servlet.xml</param-value>
   	</init-param>
   	
+  	<!-- 멀티파트 설정 -->
+  	<multipart-config>
+		<location>c:\\uploads-temp</location>
+		<max-file-size>20971520</max-file-size> <!-- 개별 업로드 파일 최대 크기 -->
+		<max-request-size>41943040</max-request-size> <!-- 한 번에 올릴 최대 크기 -->
+		<file-size-threshold>20971520</file-size-threshold> <!-- 업로드 메모리 크기 -->
+	</multipart-config>
+	
   </servlet>
   
   <servlet-mapping>
@@ -35,6 +43,7 @@
   		org.springframework.web.context.ContextLoaderListener
   	</listener-class>
   </listener>
+  
   <!-- listener 이름의 기본값
   /WEB-INF/applicationContext.xml -->
   <!-- 설정 파일 이름이 기본값을 어겼을 경우 임의로 설정 -->
@@ -66,4 +75,21 @@
   	<error-code>404</error-code>
   	<location>/error.404.jsp</location>
   </error-page>
+  
+  
+  
 </web-app>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

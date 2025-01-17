@@ -1,8 +1,9 @@
-package himedia.myportal.exception;
+package himedia.myportal.exceptions;
 
 import himedia.myportal.repositories.vo.GuestbookVo;
 
-public class GuestbookDaoException extends RuntimeException{
+public class GuestbookDaoException 
+	extends RuntimeException {
 	private GuestbookVo guestbookVo = null;
 	
 	public GuestbookDaoException() {
@@ -26,6 +27,4 @@ public class GuestbookDaoException extends RuntimeException{
 	public void setGuestbookVo(GuestbookVo guestbookVo) {
 		this.guestbookVo = guestbookVo;
 	}
-
-	
 }

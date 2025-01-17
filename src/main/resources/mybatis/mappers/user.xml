@@ -28,5 +28,4 @@
 	FROM users
 	WHERE email=#{value}
 	</select>
-	
 </mapper>

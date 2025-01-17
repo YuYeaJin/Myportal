@@ -1,8 +1,9 @@
-package himedia.myportal.exception;
+package himedia.myportal.exceptions;
 
 import himedia.myportal.repositories.vo.UserVo;
 
-public class UserDaoException extends RuntimeException{
+public class UserDaoException 
+	extends RuntimeException {
 	private UserVo userVo = null;
 	
 	public UserDaoException() {
@@ -13,7 +14,8 @@ public class UserDaoException extends RuntimeException{
 		super(message);
 	}
 	
-	public UserDaoException(String message, UserVo userVo) {
+	public UserDaoException(String message,
+			UserVo userVo) {
 		super(message);
 		this.userVo = userVo;
 	}

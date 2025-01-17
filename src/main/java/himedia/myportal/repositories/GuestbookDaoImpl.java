@@ -6,12 +6,12 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import himedia.myportal.exception.GuestbookDaoException;
+import himedia.myportal.exceptions.GuestbookDaoException;
 import himedia.myportal.repositories.vo.GuestbookVo;
 
 @Repository
-public class GuestbookDaoImpl implements GuestbookDao{
-
+public class GuestbookDaoImpl 
+	implements GuestbookDao {
 	@Autowired
 	SqlSession sqlSession;
 	

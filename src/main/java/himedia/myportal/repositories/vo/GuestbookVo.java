@@ -3,15 +3,14 @@ package himedia.myportal.repositories.vo;
 import java.util.Date;
 
 public class GuestbookVo {
-
 	private Integer no;
 	private String name;
 	private String password;
 	private String content;
 	private Date regdate;
-	
+
 	public GuestbookVo() {
-		
+
 	}
 
 	public GuestbookVo(String name, String password, String content) {
@@ -69,10 +68,11 @@ public class GuestbookVo {
 	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "GuestbookVo [no=" + no + ", name=" + name + ", password=" + password + ", content=" + content
 				+ ", regdate=" + regdate + "]";
 	}
+
 }

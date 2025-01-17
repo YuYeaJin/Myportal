@@ -5,15 +5,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
-import himedia.myportal.exception.MainControllerException;
+import himedia.myportal.exceptions.MainControllerException;
 
 @Controller
 public class MainController {
 	@RequestMapping({"/", "/main"})
 	public String main() {
-//		return "/WEB-INF/views/honme.jsp";
+//		return "/WEB-INF/views/home.jsp";
 		return "home";
 	}
 	
@@ -23,24 +22,26 @@ public class MainController {
 //		throw new MainControllerException();
 	}
 	
-	// ExceptionHandler v1
+	//	ExceptionHandler v1
+	/*
 	@ExceptionHandler(RuntimeException.class)
 	@ResponseBody
 	public String handlerControllerException(RuntimeException e) {
 		return "Exception: " + e.getMessage();
 	}
+	*/
 	
-	// ExceptionHandler v2
-	/*
+	//	ExceptionHandler v2
 	@ExceptionHandler(MainControllerException.class)
-	public String handleControllerException(MainControllerException e,Model model) {
+	public String handleControllerException(MainControllerException e,
+			Model model) {
 		model.addAttribute("name", e.getClass().getSimpleName());
 		model.addAttribute("message", e.getMessage());
 		
-		return "/errors/exception";
+		return "errors/exception";
 	}
-	*/
 	
-	//	개별 컨트롤러에서 예외 퍼리를 하는 것보다 
+	//	개별 컨트롤러에서 예외 처리를 하는 것보다
 	//	@ControllerAdvice를 이용, 전역적으로 예외를 처리하는 것이 좋은 방법
+	
 }
