@@ -18,7 +18,8 @@ import himedia.myportal.services.FileUploadService;
 @Controller
 @RequestMapping("/fileupload")
 public class FileUploadController {
-	private static final Logger logger = LoggerFactory.getLogger(FileUploadController.class);
+	private static final Logger logger = 
+			LoggerFactory.getLogger(FileUploadController.class);
 	
 	@Autowired
 	private FileUploadService fileUploadService; 

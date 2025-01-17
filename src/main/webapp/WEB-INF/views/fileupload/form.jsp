@@ -9,11 +9,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1> File Upload Test</h1>
-	<form method="post" action="<c:url value="fileupload/upload" />"
+	<h1>File Upload Test</h1>
+	<form method="post"
+		action="<c:url value="/fileupload/upload" />"
 		enctype="multipart/form-data">
 		<label>File 1</label>
-		<input type="file" name="file1">
-		<input type="submit" value="upload">
+		<input type="file" name="file1" />
+		<input type="submit" value="upload" />
+	</body>
 </body>
 </html>
