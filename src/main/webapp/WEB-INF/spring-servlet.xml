@@ -51,7 +51,7 @@
 		<property name="suffix" value=".jsp" />
 		<property name="order" value="1" />
 	</bean>
-	
+		
 	<!-- Interceptors -->
 	<mvc:interceptors>
 		<!-- mvc:interceptor>
@@ -59,22 +59,22 @@
 			<bean class="himedia.myportal.interceptors.MyInterceptor" />
 		</mvc:interceptor>
 		<mvc:interceptor>
-			<mvc:mapping path="/board/**"/>
+			<mvc:mapping path="/board/**" />
 			<bean class="himedia.myportal.interceptors.MyInterceptor2" />
 		</mvc:interceptor -->
 		<mvc:interceptor>
 		<!-- Board 서비스에는 기본적으로 로그인이 필요 -->
-		<!-- board/list는 모든 사용자가 열람할 수 있도록 설정 -->
+		<!-- board/list는 모든 사용자가 열람할 수 있도록 -->
 			<mvc:mapping path="/board/**" />
-			<mvc:exclude-mapping path="/board/" /> <!-- 제외할 인터셉터 설정하는 것 -->
+			<mvc:exclude-mapping path="/board/" />
 			<mvc:exclude-mapping path="/board" />
-			<mvc:exclude-mapping path="/board/list" />	
+			<mvc:exclude-mapping path="/board/list" />
 			<bean class="himedia.myportal.interceptors.AuthInterceptor" />
 		</mvc:interceptor>
-		<!-- 로그아웃 인터셉트 -->
+		<!-- 로그아웃 인터셉터 -->
 		<mvc:interceptor>
-			<mvc:mapping path="/users/logout"/>
-			<bean class="himedia.myportal.interceptors.LogautInterceptor"/>
+			<mvc:mapping path="/users/logout" />
+			<bean class="himedia.myportal.interceptors.LogoutInterceptor" />
 		</mvc:interceptor>
 	</mvc:interceptors>
 		
@@ -82,7 +82,17 @@
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.support.StandardServletMultipartResolver" />
 		
-	<!-- Resources Mapping -->
-	<mvc:resources mapping="/upload-images/**" location="file:c:/uploads/" cache-period="0" />
+	<!-- Resource Mapping -->
+	<mvc:resources mapping="/upload-images/**"
+		location="file:c:/uploads/" />
 	
+	<!-- MessageSource -->
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames"
+			value="messages/messages_ko" />
+		<property name="defaultEncoding"
+			value="UTF-8" />
+	</bean>
+		
 </beans>

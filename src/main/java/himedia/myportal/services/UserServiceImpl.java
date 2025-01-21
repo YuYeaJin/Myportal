@@ -33,7 +33,8 @@ public class UserServiceImpl implements UserService {
 		HttpSession session = request.getSession(false);
 		
 		if (session != null) {
-			UserVo authUser = (UserVo)session.getAttribute("authUser");
+			UserVo authUser = 
+				(UserVo)session.getAttribute("authUser");
 			return authUser != null;
 		}
 		return false;

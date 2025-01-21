@@ -9,33 +9,26 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 public class MyInterceptor2 implements HandlerInterceptor {
-
 	private static Logger logger = 
 			LoggerFactory.getLogger(MyInterceptor2.class);
 	
 	@Override
-	public boolean preHandle(HttpServletRequest request,
-			HttpServletResponse response, Object handler)
+	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		logger.debug("MyInterceptor2.preHandle calls");
 		return true;
 	}
 
 	@Override
-	public void postHandle(HttpServletRequest request, 
-			HttpServletResponse response, Object handler,
+	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
 		logger.debug("MyInterceptor2.postHandle calls");
 	}
 
 	@Override
-	public void afterCompletion(HttpServletRequest request, 
-			HttpServletResponse response, Object handler,
-			Exception ex)
+	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
 			throws Exception {
 		logger.debug("MyInterceptor2.afterCompletion calls");
 	}
 
-	
-	
 }

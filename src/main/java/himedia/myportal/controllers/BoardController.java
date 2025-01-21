@@ -54,7 +54,6 @@ public class BoardController {
 	public String writeAction(
 			@ModelAttribute BoardVo vo,
 			HttpSession session) {
-		
 		UserVo authUser = (UserVo)session.getAttribute("authUser");
 		/*
 		if (authUser == null) {
@@ -63,9 +62,10 @@ public class BoardController {
 			return "redirect:/";
 		}
 		*/
+		
 		vo.setUserNo(authUser.getNo());
 		boardServiceImpl.write(vo);
-	
+		
 		return "redirect:/board";
 	}
 	
@@ -83,16 +83,14 @@ public class BoardController {
 		@PathVariable("no") Integer no,
 		Model model, 
 		HttpSession session) {
-		
-		UserVo authUser = (UserVo)session.getAttribute("authUser");
 		/*
+		UserVo authUser = (UserVo)session.getAttribute("authUser");
 		if (authUser == null) {
 //			System.err.println("로그인 사용자 아님!");
 			logger.debug("로그인 사용자 아님");
 			return "redirect:/";
 		}
 		*/
-		
 		BoardVo vo = boardServiceImpl.getContent(no);
 		model.addAttribute("vo", vo);
 		
@@ -109,6 +107,7 @@ public class BoardController {
 			return "redirect:/";
 		}
 		*/
+		
 		BoardVo vo = boardServiceImpl.getContent(updateVo.getNo());
 		
 		if (vo.getUserNo() != authUser.getNo()) {
